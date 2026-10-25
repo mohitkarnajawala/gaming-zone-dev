@@ -2,49 +2,63 @@
 game_id: number-quest
 game_name: Number Quest
 aliases:
+  - number quest
   - number quest game
-  - number puzzle
+  - sequential numbers
+  - number sequence
 keywords:
+  - sequence
+  - sequential
+  - 3x3 grid
+  - 1 to 9
+  - 10 seconds
+  - wave
+  - timer
   - numbers
-  - puzzle
-  - quest
-  - levels
-  - logic
 ---
 
 # Number Quest — Game Guide
 
 ## Quick summary
-Number Quest is one of the games in Gaming Zone. Its name suggests a number-focused challenge or puzzle, but the exact puzzle rules and controls must be confirmed from the current game itself. This guide intentionally avoids guessing mechanics that have not been documented.
+Number Quest is a sequential number-puzzle speed game. Players are presented with a shuffled **3×3 grid** containing numbers **1 through 9**. The objective is to tap the numbers in ascending numerical sequence (1, 2, 3... up to 9) before the **10-second wave timer** runs out. Clearing all 9 numbers resets the timer to 10 seconds and spawns a new shuffled grid.
 
-## Game overview
-Use the game's on-screen instructions to learn the objective, how to interact with the puzzle, and what counts as completing a challenge. If the game presents levels, follow the instructions shown for the current level.
+## How to play
+1. Start the Number Quest game.
+2. Check the target indicator at the top to see the next required number (starts at 1).
+3. Scan the shuffled 3x3 grid to find the matching number.
+4. Tap the numbers in exact sequential order: 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+5. Work fast: you have a strict 10-second timer for each wave.
+6. Tapping all 9 numbers completes the wave, resets the timer to 10 seconds, and shuffles a new grid.
+7. Avoid mistakes: tapping the wrong number or letting the timer hit zero ends the game immediately.
 
-## General tips
-- Read the full prompt before choosing an answer.
-- Look for patterns and relationships between numbers.
-- If you get stuck, review the clues and check your work step by step.
-- Try a different approach rather than repeating the same guess.
-- Use any hints or help controls that the game itself provides, if available.
+## Game Rules
+- The game uses a 3x3 grid containing 9 tiles numbered from 1 to 9 in random positions.
+- Numbers must be tapped in strict ascending order (1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9).
+- A 10-second countdown runs during every wave.
+- Completing a full 1–9 sequence resets the 10-second timer and generates a new wave.
+- Tapping any incorrect number triggers an instant Game Over.
+- Letting the 10-second countdown expire triggers an instant Game Over.
 
-## What players can ask
-- “What is Number Quest?”
-- “How do I start Number Quest?”
-- “How do I solve a number puzzle?”
-- “Can you give me a strategy for number puzzles?”
-- “How should I approach a level I can't solve?”
-- “Explain the instructions in simpler words.”
-- “Give me a hint without telling me the answer.”
-- “Can you summarize the rules?”
-- “What should I do if I get stuck?”
-- “What details should I look for on the game screen?”
+## Tips and Strategies
+- **Check the target indicator**: Keep one eye on the required number shown at the top.
+- **Scan ahead**: While tapping the current number, mentally locate the next two numbers on the grid.
+- **Stay composed**: Rushing blindly causes wrong taps, which instantly end your game.
+- **Pace against the timer**: 10 seconds allows roughly 1 second per number; maintain a steady rhythm.
+- **Memorize the 3x3 layout**: Spend the first quarter-second mapping where the high and low numbers sit.
 
-## Answering player questions
-- For general puzzle strategy, provide helpful advice without claiming it is a special feature of this game.
-- For exact controls, level rules, hints, scoring, lives, timers, rewards, or progression, use only details confirmed by the current game instructions.
-- If the player asks for the answer to a particular puzzle, ask them to share the puzzle text or a screenshot description if it is not present in the conversation.
+## Controls and Mechanics
+- **Grid Layout**: 3 rows and 3 columns (9 total cells).
+- **Control Input**: Tap or click directly on any number tile.
+- **Target Indicator**: Highlights which number is currently required.
 
-## Known details and limitations
-- Confirmed: Number Quest is a game listed in Gaming Zone.
-- Not confirmed in this guide: the precise objective, controls, level structure, scoring, hints, timer, lives, or rewards.
-- Never make up game rules. If an answer depends on an undocumented mechanic, be transparent and direct the player to the in-game instructions.
+## Objective and Scoring
+- **Objective**: Clear as many consecutive 1–9 waves as possible without making a mistake.
+- **Score**: Each correct number tapped increases your score by 1 point.
+- **Coins**: Each correct tap awards 1 coin.
+- **High Score**: Beating your previous best triggers victory audio and celebratory confetti.
+
+## Prompts and Common Questions
+- **"How do I play Number Quest?"**: Tap numbers 1 through 9 in sequential order on the 3x3 grid within 10 seconds per wave.
+- **"What happens if I tap the wrong number?"**: Tapping any number other than the current target causes an immediate Game Over.
+- **"How long is the timer in Number Quest?"**: Each wave gives you exactly 10 seconds. Clearing all 9 numbers resets the timer back to 10 seconds.
+- **"How many cells are on the board?"**: Number Quest has a 3x3 grid consisting of 9 tiles with numbers from 1 to 9.
