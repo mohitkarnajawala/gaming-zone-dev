@@ -54,13 +54,26 @@
 
   panel.innerHTML = `
     <header class="gz-chatbot-header">
-      <div class="gz-chatbot-heading">
-        <h2 class="gz-chatbot-title">Gaming Zone Assistant</h2>
-        <p class="gz-chatbot-subtitle">Ask me about our games</p>
-      </div>
-      <button id="gz-chatbot-close" type="button"
-        aria-label="Close chatbot">×</button>
-    </header>
+  <div class="gz-chatbot-brand">
+    <img
+      id="gz-chatbot-logo"
+      class="gz-chatbot-logo"
+      src="./assets/images/logo.png"
+      alt="Gaming Zone logo"
+    />
+
+    <div class="gz-chatbot-heading">
+      <h2 class="gz-chatbot-title">Gaming Zone Assistant</h2>
+      <p class="gz-chatbot-subtitle">Ask me about our games</p>
+    </div>
+  </div>
+
+  <button
+    id="gz-chatbot-close"
+    type="button"
+    aria-label="Close chatbot"
+  >×</button>
+</header>
 
     <div id="gz-chatbot-messages" aria-live="polite"></div>
 
@@ -89,6 +102,38 @@
   const sendButton = document.getElementById("gz-chatbot-send");
   const status = document.getElementById("gz-chatbot-status");
 
+  function showTypingIndicator() {
+  const indicator = document.createElement("div");
+
+  indicator.className =
+    "gz-chatbot-message gz-bot gz-typing-indicator";
+
+  indicator.setAttribute("role", "status");
+  indicator.setAttribute("aria-label", "Gaming Zone Assistant is thinking");
+
+  indicator.innerHTML = `
+    <span class="gz-typing-label">Thinking</span>
+    <span class="gz-typing-dots" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  `;
+
+  messages.appendChild(indicator);
+  messages.scrollTop = messages.scrollHeight;
+
+  return indicator;
+}
+
+function waitForThinkingDelay(startTime, minimumDelay = 2300) {
+  const elapsed = Date.now() - startTime;
+  const remaining = Math.max(0, minimumDelay - elapsed);
+
+  return new Promise(function (resolve) {
+    setTimeout(resolve, remaining);
+  });
+}
   const suggestedQuestions = [
     "How do I play Number Tapping?",
     "How can I improve my tapping speed?",
@@ -1209,33 +1254,60 @@
   }
 
   // Handle form submission and chatbot response generation
-  form.addEventListener("submit", async function (event) {
-    event.preventDefault();
+ form.addEventListener("submit", async function (event) {
+  event.preventDefault();
 
-    const question = input.value.trim();
-    if (!question) return;
+  const question = input.value.trim();
 
-    addMessage("user", question);
-    input.value = "";
-    sendButton.disabled = true;
-    input.disabled = true;
+  if (!question) return;
 
-    try {
-      await loadKnowledge();
-      const answer = answerQuestion(question);
-      addMessage("bot", answer);
-    } catch (error) {
-      console.error("[Gaming Zone Chatbot]", error);
-      addMessage(
-        "bot",
-        "Sorry, something went wrong while answering. Please try again."
-      );
-    } finally {
-      sendButton.disabled = false;
-      input.disabled = false;
-      input.focus();
+  // Display the user's message immediately.
+  addMessage("user", question);
+  input.value = "";
+
+  // Prevent multiple submissions while the assistant is responding.
+  sendButton.disabled = true;
+  input.disabled = true;
+
+  // Show the animated thinking indicator.
+  const thinkingStartedAt = Date.now();
+  const typingIndicator = showTypingIndicator();
+
+  try {
+    // Load knowledge and prepare the answer while the indicator is visible.
+    await loadKnowledge();
+
+    const answer = answerQuestion(question);
+
+    // Keep the indicator visible for at least 2.3 seconds.
+    await waitForThinkingDelay(thinkingStartedAt, 2300);
+
+    // Remove the indicator before displaying the answer.
+    typingIndicator.remove();
+
+    addMessage("bot", answer);
+  } catch (error) {
+    console.error("[Gaming Zone Chatbot]", error);
+
+    await waitForThinkingDelay(thinkingStartedAt, 2300);
+
+    typingIndicator.remove();
+
+    addMessage(
+      "bot",
+      "Sorry, something went wrong while answering. Please try again."
+    );
+  } finally {
+    // Clean up the indicator if an unexpected error occurred.
+    if (typingIndicator.isConnected) {
+      typingIndicator.remove();
     }
-  });
+
+    sendButton.disabled = false;
+    input.disabled = false;
+    input.focus();
+  }
+});
 
   // Load the files at startup so deployment problems appear in the status.
   loadKnowledge().catch(function (error) {
