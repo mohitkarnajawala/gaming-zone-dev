@@ -101,6 +101,8 @@
   const input = document.getElementById("gz-chatbot-input");
   const sendButton = document.getElementById("gz-chatbot-send");
   const status = document.getElementById("gz-chatbot-status");
+  const logo = document.getElementById("gz-chatbot-logo");
+   logo.src = new URL("images/logo.png", assetsBase).href;
 
   function showTypingIndicator() {
   const indicator = document.createElement("div");
@@ -180,6 +182,10 @@ function waitForThinkingDelay(startTime, minimumDelay = 2300) {
       launcher.focus();
     }
   });
+
+  logo.addEventListener("error", function () {
+  logo.style.display = "none";
+});
 
   /**
    * Appends a new chat message bubble into the conversation history container.
