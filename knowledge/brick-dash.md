@@ -2,51 +2,64 @@
 game_id: brick-dash
 game_name: Brick Dash
 aliases:
+  - brick dash
   - brick dash game
+  - bricks dash
   - brick breaker
-  - bricks game
+  - breakout
 keywords:
-  - brick
-  - dash
-  - blocks
+  - paddle
   - ball
-  - levels
-  - score
+  - bricks
+  - combo
+  - multiplier
+  - flame
+  - arcade
 ---
 
 # Brick Dash — Game Guide
 
 ## Quick summary
-Brick Dash is one of the games in Gaming Zone. The title suggests a brick-focused arcade game, but the exact controls, objective, brick behaviour, and scoring rules must be confirmed from the current game instructions.
+Brick Dash is an arcade neon brick-breaker game built with the Flame engine. Players control a glowing horizontal paddle at the bottom of the screen, deflecting a bouncing neon ball into multi-colored brick formations. Success relies on maintaining ball control, angling deflection shots, and chaining brick hits into high combo multipliers.
 
-## Game overview
-Read the on-screen tutorial to identify the player's goal, how to control the game, what happens when bricks or other objects are hit, and what causes a level to end. Do not assume a paddle, bouncing ball, lives, power-ups, or specific controls unless they are confirmed by the game.
+## How to play
+1. Start the Brick Dash game to launch the glowing ball into the playfield.
+2. Drag your finger/mouse or use Left/Right arrow keys to move the bottom paddle horizontally.
+3. Deflect the bouncing ball into the colorful brick rows above.
+4. Destroy all bricks on the screen to win the level.
+5. Chain consecutive brick hits to build and sustain your combo multiplier.
+6. Collect coins awarded for breaking bricks.
+7. Keep the ball in play: if the ball slips below the paddle, the game ends.
 
-## General arcade-game tips
-- Learn what each control does before trying to move quickly.
-- Watch the movement of important objects and anticipate where they will go.
-- Aim deliberately instead of making random inputs.
-- Pay attention to changes in the playfield and any tutorial prompts.
-- After a failed attempt, think about what happened and adjust your next move.
+## Game Rules
+- The paddle moves horizontally along the bottom baseline.
+- The ball bounces off the top and side walls, as well as the paddle.
+- Hitting the ball with the outer edges of the paddle deflects it at sharper angles.
+- Ball velocity increases slightly with each paddle deflection (`difficultyModifier = 1.04`).
+- Consecutive brick hits increase the combo multiplier, multiplying score gains.
+- If the ball falls past the paddle off the bottom boundary, it is Game Over.
+- Destroying every brick in the level triggers stage completion and victory.
 
-## What players can ask
-- “What is Brick Dash?”
-- “How do I play Brick Dash?”
-- “What are the controls?”
-- “How can I improve my score?”
-- “How should I approach a difficult level?”
-- “What should I focus on while playing?”
-- “Give me tips for beginners.”
-- “Explain the instructions in simpler words.”
-- “Why did the round end?”
-- “How do I get better at this type of arcade game?”
+## Tips and Strategies
+- **Hit with paddle edges**: Intercepting the ball with the paddle's tips creates steep angles that penetrate deep into the brick wall.
+- **Aim for the top corners**: Sending the ball behind the brick formation causes it to bounce continuously between the top ceiling and bricks for effortless combo chains.
+- **Keep ball momentum going**: Rapid successive brick breaks keep your combo multiplier high.
+- **Watch the ball, not the paddle**: Keep your eyes focused on the ball's incoming trajectory to position the paddle early.
+- **Prepare for speed increases**: Because the ball accelerates slightly on paddle bounces, stay alert during extended rallies.
 
-## Answering player questions
-- General arcade-game advice is allowed if labelled as general guidance.
-- For exact controls, objects, collision behaviour, lives, power-ups, levels, scoring, and end conditions, use verified in-game instructions.
-- If the user shares a screenshot description or explains what happened, tailor advice to those details while avoiding unsupported claims.
+## Controls and Mechanics
+- **Move Paddle Left/Right**: Drag horizontally with touch/mouse, or use Left/Right keyboard arrow keys.
+- **Paddle Physics**: Rounded edges that produce variable deflection angles based on impact position.
+- **Brick Types**: 10 distinct neon color variants (Pink, Orange, Amber, Cyan, Electric Blue, Violet, Emerald Green, etc.).
 
-## Known details and limitations
-- Confirmed: Brick Dash is a game listed in Gaming Zone.
-- Not confirmed in this guide: exact game mechanics, controls, level design, power-ups, scoring, or failure conditions.
-- Be transparent about missing information and invite the player to check the game tutorial.
+## Objective and Scoring
+- **Objective**: Clear all bricks on the screen without losing the ball.
+- **Score**: Points awarded per brick smashed, multiplied by the active combo multiplier.
+- **Coins**: 1 coin earned for every brick destroyed.
+- **Completion**: Clearing all bricks completes the stage and triggers victory fanfare.
+
+## Prompts and Common Questions
+- **"How do I control the paddle in Brick Dash?"**: Drag horizontally with your finger or mouse, or use the Left and Right arrow keys.
+- **"How does the combo multiplier work in Brick Dash?"**: Destroying bricks consecutively without losing the ball increases your multiplier, greatly boosting your points per hit.
+- **"How do I clear bricks faster in Brick Dash?"**: Aim for the upper corners to slip the ball behind the brick wall so it bounces repeatedly between the ceiling and bricks.
+- **"When is the game over in Brick Dash?"**: Game Over happens when the ball drops past your paddle and leaves the bottom of the screen.
