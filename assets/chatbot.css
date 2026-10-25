@@ -255,3 +255,105 @@
     scroll-behavior: auto;
   }
 }
+
+/* Header branding: logo on the left, title on the right */
+
+.gz-chatbot-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+  flex: 1;
+}
+
+.gz-chatbot-logo {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.gz-chatbot-heading {
+  min-width: 0;
+}
+
+.gz-chatbot-title {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.gz-chatbot-subtitle {
+  margin: 3px 0 0;
+  font-size: 11px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* AI-style thinking indicator */
+
+.gz-typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 40px;
+  width: fit-content;
+  box-sizing: border-box;
+}
+
+.gz-typing-label {
+  color: #cbd5e1;
+  font-size: 12px;
+}
+
+.gz-typing-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gz-typing-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #a78bfa;
+  animation: gz-thinking-bounce 1.1s infinite ease-in-out;
+}
+
+.gz-typing-dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.gz-typing-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.gz-typing-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes gz-thinking-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+
+  30% {
+    transform: translateY(-5px);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gz-typing-dots span {
+    animation: none;
+    opacity: 1;
+  }
+}
